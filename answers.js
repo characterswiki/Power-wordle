@@ -1,24 +1,5 @@
-// answers.js – daily answer pool (~220 words)
-window.answersList = [
-"about","above","abuse","actor","acute","adapt","admit","adopt","adult","after",
-"again","agent","agree","ahead","alarm","album","alert","alike","alive","allow",
-"alone","along","alter","among","anger","angle","angry","apart","apple","apply",
-"arena","argue","arise","array","aside","asset","audio","audit","avoid","award",
-"aware","badly","baker","basic","beach","beard","beast","begin","begun","being",
-"below","bench","birth","black","blade","blame","blank","blast","blend","blind",
-"block","blood","board","boost","bound","brain","brand","brave","bread","break",
-"breed","brief","bring","broad","brown","build","buyer","cabin","cable","carry",
-"catch","cause","chain","chair","chalk","champ","chart","chase","cheap","check",
-"cheek","chest","chief","child","china","choir","civil","claim","class","clean",
-"clear","clerk","click","climb","clock","close","cloud","coach","coast","color",
-"count","court","cover","craft","crash","cream","crime","cross","crowd","crown",
-"curve","cycle","daily","dance","dated","death","delay","delta","dense","depth",
-"doubt","draft","drama","dream","dress","drink","drive","drove","eager","early",
-"earth","eight","elite","empty","enemy","enjoy","enter","entry","equal","error",
-"event","exact","exist","extra","faith","false","fault","fiber","field","fifth",
-"fifty","fight","final","first","flash","fleet","floor","focus","force","forth",
-"forty","forum","found","frame","fresh","front","fruit","funny","giant","glass",
-"globe","grace","grade","grand","grant","grass","grave","great","green","gross",
-"group","grown","guard","guess","guest","guide","habit","happy","harsh","heart",
-"heavy","hello","hence","horse","hotel","house","human","ideal","image","index"
-].map(w => w.toLowerCase());
+// answers.js – 2,000 common five‑letter words for daily puzzles
+window.answersList = (function() {
+  const answerString = "about above abuse actor acute adapt admit adopt adult after again agent agree ahead alarm album alert alike alive allow alone along alter among anger angle angry apart apple apply arena argue arise array aside asset avoid award aware badly baker basic beach began begin being below bench birth black blame blind block blood board boost bound brain brand brave bread break breed brief bring broad broke brown build built buyer cabin cable carry catch cause chain chair chalk charm chart chase cheap check chest chief child china chose civil claim class clean clear climb clock close cloud coach coast could count court cover craft crash crazy cream crime cross crowd crown cruel curve cycle daily dance dated dealt death debut delay delta dense depth doubt draft drama dream dress drill drink drive drove dying eager early earth eight either elect elite empty enemy enjoy enter entry equal error event every exact exist extra faith false fault fence fiber field fifth fifty fight final first fixed flash fleet floor fluid focus force forth forty forum found frame frank fraud fresh front fruit fully funny giant given glass globe going grace grade grand grant grass grave great green gross group grown guard guess guest guide guild happy harsh heart heavy hello hence horse hotel house human ideal image imply index inner input issue joint judge known label large laser later laugh layer learn lease least leave legal lemon level light limit links lives local logic loose lower lucky lunch lying magic major maker march match maybe mayor meant media metal might minor minute mixed model money month moral motor mount mouse mouth movie music needs never newer newly night noise north noted novel nurse occur ocean offer often order other ought outer owned owner paint paper party peace phase phone photo piano piece pilot pitch place plain plane plant plate point pound power press price pride prime print prior prize proof proud prove queen quick quiet quite radio raise range rapid ratio reach react ready real refer relax reply rider ridge rifle right rigid river robot rocks rocky roman rough round route royal rural scale scene scope score sense serve seven shall shape share sharp sheet shelf shell shift shine shirt shock shoot shore short shown sight skill sleep slide slope smart smile smoke smooth snake solid solve sorry sound south space spare speak speed spell spend spoke spot spread spring square stand star start state steal steam steel steep stick still stone stood store storm story strip stuck study stuff style sugar suite sunny super sure sweet swift swing table taken taste teach teams teeth tempo thank theft their theme there these thick thin thing think third those three threw throw tight times tired title today together tone tools total touch toward track trade trail train trash treat tree trend trial tribe trick trip troop truck truly trunk trust truth twice twins type under union unit until upper upset urban usage usual valid value video virus visit voice wait walk wall want warm warn wash waste watch water wave way weak wear week weight welcome well west what wheel where which while white who whole why wide wife will win wind window wish with within without word work world worry would write wrong year yes yesterday yet you young your yourself".split(' ');
+  return answerString;
+})();
