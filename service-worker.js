@@ -1,4 +1,3 @@
-// service-worker.js – caches static assets for offline play (no icons)
 const CACHE_NAME = 'power-wordle-v1';
 const urlsToCache = [
   '.',
@@ -7,7 +6,9 @@ const urlsToCache = [
   'script.js',
   'words.js',
   'answers.js',
-  'manifest.json'
+  'manifest.json',
+  'data/words5.txt',
+  'data/answers.txt'
 ];
 
 self.addEventListener('install', event => {
@@ -27,9 +28,7 @@ self.addEventListener('fetch', event => {
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(keys => Promise.all(
-      keys.map(key => {
-        if (key !== CACHE_NAME) return caches.delete(key);
-      })
+      keys.map(key => key !== CACHE_NAME ? caches.delete(key) : null)
     ))
   );
 });
