@@ -1,4 +1,4 @@
-// service-worker.js – caches static assets for offline play
+// service-worker.js – caches static assets for offline play (no icons)
 const CACHE_NAME = 'power-wordle-v1';
 const urlsToCache = [
   '.',
@@ -7,9 +7,7 @@ const urlsToCache = [
   'script.js',
   'words.js',
   'answers.js',
-  'manifest.json',
-  'assets/icons/icon-192.png',
-  'assets/icons/icon-512.png'
+  'manifest.json'
 ];
 
 self.addEventListener('install', event => {
