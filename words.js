@@ -56,4 +56,4 @@ window.validWords = [
   "which", "while", "white", "who", "whole", "why", "wide", "wife", "will", "win", "wind",
   "window", "wish", "with", "within", "without", "word", "work", "world", "worry", "would",
   "write", "wrong", "year", "yes", "yesterday", "yet", "you", "young", "your", "yourself"
-].map(w => w.toLowerCase()); // ensure lower
+].map(w => w.toLowerCase());
