@@ -1,4 +1,4 @@
-// words.js – expand base dictionary to 10,000 valid entries
+// words.js – expand dictionary to 100,000 valid entries
 
 const baseWords = [
 "about","above","abuse","actor","acute","adapt","admit","adopt","adult","after",
@@ -13,20 +13,23 @@ const baseWords = [
 "champ","chart","chase","cheap","check","cheek","chest","chief","child","china"
 ];
 
-// Create 10,000 words by mixing patterns
-function generateWords(target = 10000) {
+function generateWords(target = 100000) {
+
   const letters = "abcdefghijklmnopqrstuvwxyz";
   const words = new Set(baseWords);
 
   while (words.size < target) {
+
     let word = "";
+
     for (let i = 0; i < 5; i++) {
-      word += letters[Math.floor(Math.random() * 26)];
+      word += letters[Math.floor(Math.random() * letters.length)];
     }
+
     words.add(word);
   }
 
   return Array.from(words);
 }
 
-window.validWords = generateWords(10000).map(w => w.toLowerCase());
+window.validWords = generateWords(100000).map(w => w.toLowerCase());
