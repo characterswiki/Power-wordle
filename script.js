@@ -1,9 +1,6 @@
 // script.js – full game logic, localStorage, share, UTC daily puzzle + help modal
 
 // ---------- GLOBALS (populated from words.js & answers.js) ----------
-// Expects: window.validWords (array) and window.answersList (array)
-// answersList should be at least 100 words for daily rotation
-
 const startDate = new Date(Date.UTC(2024, 0, 1)); // Jan 1, 2024 as day 0
 
 let answer = '';
@@ -79,14 +76,12 @@ function loadGameBoard() {
         currentCol = st.currentCol;
         gameOver = st.gameOver;
         renderBoard();
-        // rebuild keyboard state from rowColors
         rebuildKeyboardState();
         updateKeyboard();
         return;
       }
     } catch (e) { console.warn('failed to load board'); }
   }
-  // default reset
   resetGame();
 }
 
@@ -201,13 +196,11 @@ function submitGuess() {
   for (let i = 0; i < 5; i++) {
     const color = result[i];
     animateTile(currentRow, i, color, guessArr[i]);
-    // update keyboard
     const letter = guessArr[i];
     const curStatus = keyboardState[letter];
     if (color === 'correct') keyboardState[letter] = 'correct';
     else if (color === 'present' && curStatus !== 'correct') keyboardState[letter] = 'present';
     else if (color === 'absent' && !curStatus) keyboardState[letter] = 'absent';
-    // if already correct, keep correct
   }
 
   updateKeyboard();
@@ -259,15 +252,11 @@ function deleteLetter() {
   saveGameBoard();
 }
 
-// reset for new day if needed (called on load and interval)
+// reset for new day if needed
 function checkForNewDay() {
   const todayIdx = getUTCDayIndex();
   if (stats.lastGameTimestamp !== todayIdx) {
-    // new day, reset game fully
     resetGame();
-  } else if (gameOver) {
-    // already played today, show result but disable input
-    // board already rendered
   }
 }
 
@@ -363,7 +352,6 @@ copyShareBtn.addEventListener('click', () => {
 // ---------- initialization ----------
 window.addEventListener('load', () => {
   loadStats();
-  // ensure we have word lists
   if (typeof answersList === 'undefined' || !answersList.length) {
     alert('Error: answers list missing');
     return;
@@ -373,11 +361,9 @@ window.addEventListener('load', () => {
     return;
   }
   answer = getDailyAnswer();
-  loadGameBoard();  // loads saved board or resets if day mismatch
-  // keyboard listeners
+  loadGameBoard();
   keys.forEach(k => k.addEventListener('click', handleKeyClick));
   window.addEventListener('keydown', handlePhysicalKey);
-  // check every hour for new day
   setInterval(() => {
     const newToday = getUTCDayIndex();
     if (stats.lastGameTimestamp !== newToday) {
