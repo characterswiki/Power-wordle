@@ -1,10 +1,10 @@
 {
   "name": "Power Language Wordle",
   "short_name": "PowerWordle",
-  "description": "Daily word puzzle with flip animations and stats.",
+  "description": "Daily word puzzle with huge dictionary. Flip tiles, track stats.",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#121213",
-  "theme_color": "#6aaa64"
-  // icons omitted – no images used
+  "theme_color": "#6aaa64",
+  "icons": []
 }
