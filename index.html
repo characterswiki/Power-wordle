@@ -3,13 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>Power Language Wordle · daily word puzzle</title>
-  <meta name="description" content="Guess the hidden word in 6 tries. A fresh puzzle every day in UTC. Flip tiles, track stats, and share results.">
+  <title>Power Language Wordle</title>
+  <meta name="description" content="Guess the hidden word in 6 tries. Fresh puzzle every day.">
   <meta name="theme-color" content="#6aaa64">
-  <meta property="og:title" content="Power Language Wordle">
-  <meta property="og:description" content="Daily word game – train your vocabulary with style.">
   <link rel="manifest" href="manifest.json">
-  <!-- No icon links – pure text/code experience -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -24,12 +21,10 @@
     </header>
 
     <main>
-      <!-- game board 6x5 -->
-      <div class="board" id="board" aria-label="game board, 6 rows of 5 letters"></div>
+      <div class="board" id="board"></div>
 
-      <!-- on-screen keyboard -->
-      <div class="keyboard" id="keyboard">
-        <div class="keyboard-row" id="row1">
+      <div class="keyboard">
+        <div class="keyboard-row">
           <button class="key" data-key="Q">Q</button>
           <button class="key" data-key="W">W</button>
           <button class="key" data-key="E">E</button>
@@ -41,7 +36,7 @@
           <button class="key" data-key="O">O</button>
           <button class="key" data-key="P">P</button>
         </div>
-        <div class="keyboard-row" id="row2">
+        <div class="keyboard-row">
           <button class="key" data-key="A">A</button>
           <button class="key" data-key="S">S</button>
           <button class="key" data-key="D">D</button>
@@ -52,7 +47,7 @@
           <button class="key" data-key="K">K</button>
           <button class="key" data-key="L">L</button>
         </div>
-        <div class="keyboard-row" id="row3">
+        <div class="keyboard-row">
           <button class="key enter" data-key="ENTER">ENTER</button>
           <button class="key" data-key="Z">Z</button>
           <button class="key" data-key="X">X</button>
@@ -68,7 +63,7 @@
       <div class="message" id="message"></div>
     </main>
 
-    <!-- stats modal -->
+    <!-- Statistics Modal -->
     <div class="modal" id="stats-modal">
       <div class="modal-content">
         <span class="close-btn" id="close-stats">&times;</span>
@@ -79,26 +74,22 @@
           <div><span id="current-streak">0</span><br>Streak</div>
           <div><span id="max-streak">0</span><br>Max</div>
         </div>
-        <div class="share-result" id="share-result-container">
-          <button id="copy-share" class="share-button">📋 copy result</button>
-        </div>
+        <button id="copy-share" class="share-button">📋 Copy Result</button>
       </div>
     </div>
 
-    <!-- help / instructions modal (matches 1000048238.jpg) -->
+    <!-- Help Modal -->
     <div class="modal" id="help-modal">
       <div class="modal-content help-content">
         <span class="close-btn" id="close-help">&times;</span>
         <h2>How To Play</h2>
         <p class="intro">Guess the WORDLE in 6 tries.</p>
         <ul class="rule-list">
-          <li>Each guess must be a valid 5 letter word. Hit the enter button to submit.</li>
-          <li>After each guess, the color of the tiles will change to show how close your guess was to the word.</li>
+          <li>Each guess must be a valid 5‑letter word. Hit Enter to submit.</li>
+          <li>After each guess, tile colors show how close you were.</li>
         </ul>
-
         <div class="examples">
           <h3>Examples</h3>
-
           <div class="example-row">
             <div class="example-word">
               <span class="example-tile correct">W</span>
@@ -107,9 +98,8 @@
               <span class="example-tile">R</span>
               <span class="example-tile">Y</span>
             </div>
-            <p class="example-desc">The letter <strong>W</strong> is in the word and in the correct spot.</p>
+            <p><strong>W</strong> is in the correct spot.</p>
           </div>
-
           <div class="example-row">
             <div class="example-word">
               <span class="example-tile">P</span>
@@ -118,9 +108,8 @@
               <span class="example-tile">L</span>
               <span class="example-tile">S</span>
             </div>
-            <p class="example-desc">The letter <strong>I</strong> is in the word but in the wrong spot.</p>
+            <p><strong>I</strong> is in the word but wrong spot.</p>
           </div>
-
           <div class="example-row">
             <div class="example-word">
               <span class="example-tile">V</span>
@@ -129,16 +118,14 @@
               <span class="example-tile absent">U</span>
               <span class="example-tile">E</span>
             </div>
-            <p class="example-desc">The letter <strong>U</strong> is not in the word in any spot.</p>
+            <p><strong>U</strong> is not in the word.</p>
           </div>
         </div>
-
-        <p class="footer-note">A new WORDLE will be available each day!</p>
+        <p class="footer-note">A new WORDLE is available every day!</p>
       </div>
     </div>
   </div>
 
-  <!-- word lists (injected as global) -->
   <script src="words.js"></script>
   <script src="answers.js"></script>
   <script src="script.js"></script>
