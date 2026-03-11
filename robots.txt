@@ -1,0 +1,23 @@
+# Allow all search engines to crawl the main site
+User-agent: *
+Disallow: /admin/
+Disallow: /drafts/
+Disallow: /private/
+
+# Crawl delay can help if you have heavy daily updates
+Crawl-delay: 5
+
+# Sitemap location (must match your deployed sitemap)
+Sitemap: https://wordlepowerlanguage-uk.netlify.app/sitemap.xml
+
+# Block specific bots if needed (optional, but powerful)
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+# Optional: Block query parameters that may cause duplicate content
+Disallow: /*?sessionid=
+Disallow: /*?utm_source=
+Disallow: /*?utm_medium=
