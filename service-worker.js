@@ -1,30 +1,37 @@
-// service-worker.js (caches all assets, including fetched word lists via cache API)
-const CACHE_NAME = 'power-wordle-v2';
+// service-worker.js – caches static assets for offline play
+const CACHE_NAME = 'power-wordle-v1';
 const urlsToCache = [
   '.',
   'index.html',
   'styles.css',
   'script.js',
-  'wordlist-loader.js',
-  'manifest.json'
+  'words.js',
+  'answers.js',
+  'manifest.json',
+  'assets/icons/icon-192.png',
+  'assets/icons/icon-512.png'
 ];
 
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache))
+    caches.open(CACHE_NAME)
+      .then(cache => cache.addAll(urlsToCache))
   );
 });
 
 self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.match(event.request).then(response => response || fetch(event.request))
+    caches.match(event.request)
+      .then(response => response || fetch(event.request))
   );
 });
 
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(keys => Promise.all(
-      keys.map(key => key !== CACHE_NAME ? caches.delete(key) : null)
+      keys.map(key => {
+        if (key !== CACHE_NAME) return caches.delete(key);
+      })
     ))
   );
 });
